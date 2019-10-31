@@ -12,6 +12,26 @@
     List of Florists Nearby:
   </h1>
   <div>
+    <ul>'
+      <% data.forEach(florist => { %>
+        <li>
+          <article>
+            <div>
+              <h2><%= florist.name %></h2>
+              <img src="<%= florist.image_url %>" width="200"/>
+              <% florist.location.display_address.forEach(address => { %>
+                <address>
+                  <%= address %><br>
+                  <% }) %>
+                  <%= florist.display_phone %><br>
+                  <%= florist.price %><br>
+                  <%= (florist.distance/1609.344).toFixed(2) %>mi.
+                </address>
+            </div>
+          </article>
+        </li>
+      <% }) %>
+    </ul>
   </div>
 </body>
 </html>
