@@ -17,23 +17,16 @@ app.post("/florists", (request, response) => {
   client.search({
     term: 'florists',
     location: request.body.florists,
+    sort_by: 'distance'
   })
   .then(res => {
-    let data = sortFloristsDistance(res.jsonBody.businesses);
+    let data = res.jsonBody.businesses;
     response.render(__dirname + "/views/florist.ejs", {data: data});
   })
   .catch(e => {
     console.log(e);
   });
 })
-
-// sort florists results by distance
-function sortFloristsDistance(florists) {
-  florists.sort((a, b) => {
-    return a.distance - b.distance;
-  });
-  return florists;
-}
 
 // listen for requests :)
 const listener = app.listen(process.env.PORT || 3000, function() {
