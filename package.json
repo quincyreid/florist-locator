@@ -4,7 +4,8 @@
   "description": "A simple Node app built to help you find the nearest florist.",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev-start": "nodemon server.js"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -19,5 +20,8 @@
   "keywords": [
     "node",
     "express"
-  ]
+  ],
+  "devDependencies": {
+    "nodemon": "^1.19.4"
+  }
 }
